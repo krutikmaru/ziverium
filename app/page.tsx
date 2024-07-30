@@ -12,7 +12,7 @@ export default function Home() {
         priority
       />
       <h1 className="text-[#c4c4c4] text-xl tracking-tight font-medium">
-        Coming Soon...
+        Greatness to be unveiled soon...
       </h1>
     </main>
   );
