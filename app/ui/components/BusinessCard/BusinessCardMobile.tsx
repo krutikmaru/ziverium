@@ -152,7 +152,7 @@ function Notification({
 }: NotificationProps) {
   return (
     <Link
-      href={"https://instagram.com/hinduistic"}
+      href={href}
       className="bg-[#fff]/50 backdrop-blur-2xl py-[12px] px-[14px] rounded-2xl flex items-center justify-start"
     >
       <Image
