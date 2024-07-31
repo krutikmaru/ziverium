@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function BusinessCardMobile() {
   return (
-    <div className="w-full ">
-      <IOSWallpaper />
+    <div className="w-full bg-[url('/business-card/ios-wallpaper.png')] bg-cover">
+      {/* <IOSWallpaper /> */}
       <ScreenContent />
     </div>
   );
@@ -26,11 +27,11 @@ function IOSWallpaper() {
 
 function ScreenContent() {
   return (
-    <div className="relative z-10 h-screen xs:h-full flex flex-col justify-start items-start text-white">
+    <div className="relative z-10 pb-10 h-screen xs:h-full flex flex-col justify-start items-start text-white">
       <StatusBar />
       <DateTime />
       <Notifications />
-      {/* <BottomActions /> */}
+      <BottomActions />
     </div>
   );
 }
@@ -135,6 +136,7 @@ function Notifications() {
           title={notification.title}
           description={notification.description}
           time={notification.time}
+          href={notification.href}
         />
       ))}
     </div>
@@ -146,13 +148,17 @@ function Notification({
   title,
   time,
   description,
+  href,
 }: NotificationProps) {
   return (
-    <div className="bg-[#fff]/50 backdrop-blur-2xl py-[12px] px-[14px] rounded-2xl flex items-center justify-start">
+    <Link
+      href={"https://instagram.com/hinduistic"}
+      className="bg-[#fff]/50 backdrop-blur-2xl py-[12px] px-[14px] rounded-2xl flex items-center justify-start"
+    >
       <Image
         className="mr-[12px]"
         src={appIcon}
-        alt="Instagram Icon"
+        alt={`${title} icon`}
         height={38}
         width={38}
         priority
@@ -164,19 +170,29 @@ function Notification({
         </div>
         <p className="text-base text-black -mt-1">{description}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 
 function BottomActions() {
-  return <div className="h-28 w-full bg-blue-500">Bottom Actions</div>;
-}
-
-interface NotificationProps {
-  appIcon: string;
-  title: string;
-  time: string;
-  description: string;
+  return (
+    <div className="w-full flex items-center justify-between px-10 mt-10">
+      <Image
+        src="/business-card/icon-flashlight-button.svg"
+        alt="Flashlight Button"
+        height={50}
+        width={50}
+        priority
+      />
+      <Image
+        src="/business-card/icon-camera-button.svg"
+        alt="Camera Button"
+        height={50}
+        width={50}
+        priority
+      />
+    </div>
+  );
 }
 
 const notifications = [
@@ -186,6 +202,7 @@ const notifications = [
     time: "9:41 AM",
     description: "Your account reached 500K users",
     appIcon: "/business-card/icon-instagram.svg",
+    href: "https://instagram.com/ziverium",
   },
   {
     id: "call",
@@ -193,5 +210,38 @@ const notifications = [
     time: "9:41 AM",
     description: "Missed call from Ziverium",
     appIcon: "/business-card/icon-call.svg",
+    href: "tel:9987554888",
+  },
+  {
+    id: "mail",
+    title: "Mail us",
+    time: "9:41 AM",
+    description: "You just made a sale of $250",
+    appIcon: "/business-card/icon-mail.svg",
+    href: "mailto:business@ziverium.com",
+  },
+  {
+    id: "linkedin",
+    title: "LinkedIn",
+    time: "9:41 AM",
+    description: "Company sales up by 70%",
+    appIcon: "/business-card/icon-linkedin.svg",
+    href: "https://www.linkedin.com/in/krutik-maru/",
+  },
+  {
+    id: "brochure",
+    title: "Brochure",
+    time: "9:41 AM",
+    description: "Know more about us!",
+    appIcon: "/business-card/icon-ziverium.svg",
+    href: "/BusinessCard",
   },
 ];
+
+interface NotificationProps {
+  appIcon: string;
+  title: string;
+  time: string;
+  description: string;
+  href: string;
+}
