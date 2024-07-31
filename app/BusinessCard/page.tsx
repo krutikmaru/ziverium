@@ -1,9 +1,13 @@
+"use client";
+import useWindowSize from "@/app/lib/hooks/useWindowSize";
+import BusinessCardMobile from "../ui/components/BusinessCard/BusinessCardMobile";
+
 export default function Page() {
+  const { width } = useWindowSize();
+  const isMobile = width !== undefined && width <= 768;
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24 bg-[#2c282c]">
-      <h1 className="text-[#c4c4c4] text-xl tracking-tight font-medium">
-        Business Card on the way !
-      </h1>
+    <main className="flex min-h-screen">
+      {isMobile ? <BusinessCardMobile /> : <h1>Desktop Business Card</h1>}
     </main>
   );
 }
