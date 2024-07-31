@@ -234,7 +234,7 @@ const notifications = [
     time: "9:41 AM",
     description: "Know more about us!",
     appIcon: "/business-card/icon-ziverium.svg",
-    href: "/BusinessCard",
+    href: "https://acrobat.adobe.com/id/urn:aaid:sc:AP:40ea1149-d43a-4d71-8252-6d9c7e1f39ed",
   },
 ];
 
