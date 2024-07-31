@@ -5,7 +5,6 @@ import React from "react";
 function BusinessCardMobile() {
   return (
     <div className="w-full bg-[url('/business-card/ios-wallpaper.png')] bg-cover">
-      {/* <IOSWallpaper /> */}
       <ScreenContent />
     </div>
   );
@@ -13,21 +12,9 @@ function BusinessCardMobile() {
 
 export default BusinessCardMobile;
 
-function IOSWallpaper() {
-  return (
-    <Image
-      src="/business-card/ios-wallpaper.png"
-      alt="Business Card Background"
-      layout="fill"
-      objectFit="cover"
-      priority
-    />
-  );
-}
-
 function ScreenContent() {
   return (
-    <div className="relative z-10 pb-10 h-screen xs:h-full flex flex-col justify-start items-start text-white">
+    <div className="relative z-10 pb-10 h-screen xs:h-full flex flex-col justify-start items-center text-white">
       <StatusBar />
       <DateTime />
       <Notifications />
@@ -128,7 +115,7 @@ function DateTime() {
 
 function Notifications() {
   return (
-    <div className="w-full h-full px-5 tracking-tight flex flex-col space-y-2">
+    <div className="w-full h-full px-5 tracking-tight flex flex-col items-center space-y-2">
       {notifications.map((notification) => (
         <Notification
           key={notification.id}
@@ -153,7 +140,7 @@ function Notification({
   return (
     <Link
       href={href}
-      className="bg-[#fff]/50 backdrop-blur-2xl py-[12px] px-[14px] rounded-2xl flex items-center justify-start"
+      className="max-w-[700px] bg-[#fff]/50 w-full backdrop-blur-2xl py-[12px] px-[14px] rounded-2xl flex items-center justify-start"
     >
       <Image
         className="mr-[12px]"
@@ -176,7 +163,7 @@ function Notification({
 
 function BottomActions() {
   return (
-    <div className="w-full flex items-center justify-between px-10 mt-10">
+    <div className="max-w-[700px] w-full flex items-center justify-between px-10 mt-10">
       <Image
         src="/business-card/icon-flashlight-button.svg"
         alt="Flashlight Button"
