@@ -27,7 +27,7 @@ function Page() {
         );
       })}
       <Image
-        className="opacity-60"
+        className="opacity-40"
         src="/ziverium_withtext.png"
         alt="Ziverium Logo"
         width={180}
