@@ -22,18 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-        <body
-          className={cn(
-            "min-h-screen bg-background font-sans antialiased bg-white dark:bg-[#0a0d0d]",
-            fontSans.variable
-          )}
-        >
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased ",
+          fontSans.variable
+        )}
+      >
+        <Providers>
           <Navigation />
           <GradientMouseFollow />
           {children}
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }
