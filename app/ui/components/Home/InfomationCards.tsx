@@ -25,7 +25,7 @@ function InfomationCards() {
         <p className="text-lg font-light text-neutral-400 text-center mb-10 px-5 sm:px-0">
           See how Ziverium can help you reach the goals of your dream.
         </p>
-        <div className="w-full flex flex-col justify-center items-center space-y-5 md:space-y-0 space-x-0 md:space-x-5 px-5 md:px-20">
+        <div className="w-full flex flex-col md:flex-row justify-center items-center space-y-5 md:space-y-0 space-x-0 md:space-x-5 px-5 md:px-20">
           <div className="w-full flex flex-col justify-start items-start p-10 min-h-[300px] rounded-md bg-gradient-to-br from-white/20 to-white/[0.05] border border-neutral-500 backdrop-blur-xl">
             <div className="bg-gradient-to-br from-ziverium-blue to-ziverium-blue/30 p-3 rounded-full border-2 border-neutral-500 mb-4">
               <Factory />
