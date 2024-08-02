@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import Providers from "./lib/Providers";
+import { cn } from "@/lib/utils";
+import Navigation from "@/app/ui/components/Layout/Navigation/Navigation";
+import GradientMouseFollow from "@/app/ui/components/GradientMouseFollow";
 
-const inter = Inter({ subsets: ["latin"] });
-
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 export const metadata: Metadata = {
   title: "Ziverium",
   description: "Where Your Ideas Meet Creativity",
@@ -16,7 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <Providers>
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased bg-white dark:bg-[#0a0d0d]",
+            fontSans.variable
+          )}
+        >
+          <Navigation />
+          <GradientMouseFollow />
+          {children}
+        </body>
+      </Providers>
     </html>
   );
 }
