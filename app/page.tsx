@@ -3,7 +3,8 @@
 import React from "react";
 import Hero from "@/app/ui/components/Home/Hero";
 import Clients from "@/app/ui/components/Home/Clients";
-import InfomationCards from "./ui/components/Home/InfomationCards";
+import InfomationCards from "@/app/ui/components/Home/InfomationCards";
+import { Bento } from "@/app/ui/components/Home/BentoGrid";
 
 // Third party imports
 
@@ -15,6 +16,7 @@ function Page() {
       <Hero />
       <Clients />
       <InfomationCards />
+      <Bento />
     </div>
   );
 }

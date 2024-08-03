@@ -21,8 +21,11 @@ function Hero() {
           <ArrowRight size={20} />
         </button>
       </div>
-      <div className=" w-full h-fit overflow-visible">
-        {/* <Spline scene="https://prod.spline.design/50s7CDe3XTgTbS2h/scene.splinecode" /> */}
+      <div className=" w-full h-full relative overflow-visible bg-transparent">
+        {/* <Spline
+          scene="https://prod.spline.design/50s7CDe3XTgTbS2h/scene.splinecode"
+          className="bg-red-transparent object-contain h-[700px]"
+        /> */}
       </div>
     </div>
   );
