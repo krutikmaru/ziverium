@@ -5,7 +5,7 @@ import NorthernLights from "../NorthernLights";
 function Hero() {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center w-screen min-h-screen relative overflow-hidden px-5 md:px-20">
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-[#0a0d0d] z-20"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-ziverium-background-dark z-20"></div>
       <NorthernLights />
       <div className=" w-full h-full flex flex-col items-center md:items-start justify-center relative z-20 mt-36 md:mt-0 mb-10">
         <h1 className="scroll-m-20 text-7xl font-normal tracking-tight lg:text-8xl mb-4">

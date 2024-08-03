@@ -28,7 +28,7 @@ const GradientMouseFollow = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-32 h-32 bg-ziverium-blue/20 blur-3xl pointer-events-none"
+      className="fixed top-0 left-0 w-32 h-32 z-[10000] bg-ziverium-blue/20 blur-3xl pointer-events-none"
       style={{ x: springX, y: springY }}
     />
   );
