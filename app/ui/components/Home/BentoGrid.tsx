@@ -79,7 +79,7 @@ const features = [
 export function Bento() {
   return (
     <div className="flex flex-col justify-center items-center pt-10 relative">
-      <div className="w-[600px] h-[600px] bg-ziverium-blue/10 blur-3xl rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="w-[600px] h-[600px] bg-ziverium-blue/10 blur-3xl rounded-full absolute top-96 sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
 
       <div className="flex  items-center justify-center">
         <div
@@ -98,7 +98,7 @@ export function Bento() {
       <p className="text-lg font-light text-neutral-400 text-center px-5 sm:px-0">
         Our Tailored strategies to boost your brands visibility and growth.
       </p>
-      <BentoGrid className="lg:grid-rows-3 p-20">
+      <BentoGrid className="lg:grid-rows-3 p-5 sm:p-20">
         {features.map((feature) => (
           <BentoCard key={feature.name} {...feature} />
         ))}
