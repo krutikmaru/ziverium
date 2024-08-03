@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import "tailwindcss/tailwind.css";
+// import "tailwindcss/tailwind.css";
 
 const GradientMouseFollow = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
