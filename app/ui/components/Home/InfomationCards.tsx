@@ -1,6 +1,6 @@
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import { cn } from "@/lib/utils";
-import { Factory } from "lucide-react";
+import { Factory, LucideIcon } from "lucide-react";
 import React from "react";
 
 function InfomationCards() {
@@ -26,45 +26,14 @@ function InfomationCards() {
           See how Ziverium can help you reach the goals of your dream.
         </p>
         <div className="w-full flex flex-col md:flex-row justify-center items-center space-y-5 md:space-y-0 space-x-0 md:space-x-5 px-5 md:px-20">
-          <div className="w-full flex flex-col justify-start items-start p-10 min-h-[300px] rounded-md bg-gradient-to-br from-white/20 to-white/[0.05] border border-neutral-500 backdrop-blur-xl">
-            <div className="bg-gradient-to-br from-ziverium-blue to-ziverium-blue/30 p-3 rounded-full border-2 border-neutral-500 mb-4">
-              <Factory />
-            </div>
-            <h4 className="scroll-m-20 text-2xl font-medium mb-4">
-              Accelerating Growth
-            </h4>
-            <p className="text-lg font-light text-neutral-300">
-              Empowering businesses to unify their operations, optimize their
-              strategies, and accelerate growth—all from one intuitive
-              interface.
-            </p>
-          </div>
-          <div className="w-full flex flex-col justify-start items-start p-10 min-h-[300px] rounded-md bg-gradient-to-br from-white/20 to-white/[0.05] border border-neutral-500 backdrop-blur-xl">
-            <div className="bg-gradient-to-br from-ziverium-blue to-ziverium-blue/30 p-3 rounded-full border-2 border-neutral-500 mb-4">
-              <Factory />
-            </div>
-            <h4 className="scroll-m-20 text-2xl font-medium mb-4">
-              Accelerating Growth
-            </h4>
-            <p className="text-lg font-light text-neutral-300">
-              Empowering businesses to unify their operations, optimize their
-              strategies, and accelerate growth—all from one intuitive
-              interface.
-            </p>
-          </div>
-          <div className="w-full flex flex-col justify-start items-start p-10 min-h-[300px] rounded-md bg-gradient-to-br from-white/20 to-white/[0.05] border border-neutral-500 backdrop-blur-xl">
-            <div className="bg-gradient-to-br from-ziverium-blue to-ziverium-blue/30 p-3 rounded-full border-2 border-neutral-500 mb-4">
-              <Factory />
-            </div>
-            <h4 className="scroll-m-20 text-2xl font-medium mb-4">
-              Accelerating Growth
-            </h4>
-            <p className="text-lg font-light text-neutral-300">
-              Empowering businesses to unify their operations, optimize their
-              strategies, and accelerate growth—all from one intuitive
-              interface.
-            </p>
-          </div>
+          {cards.map((card) => (
+            <InformationCard
+              key={card.title}
+              title={card.title}
+              description={card.description}
+              Icon={card.Icon}
+            />
+          ))}
         </div>
       </div>
     </div>
@@ -72,3 +41,50 @@ function InfomationCards() {
 }
 
 export default InfomationCards;
+
+function InformationCard({
+  title,
+  Icon,
+  description,
+}: {
+  title: string;
+  Icon: LucideIcon;
+  description: string;
+}) {
+  return (
+    <div className="w-full flex flex-col justify-start items-start p-10 min-h-[320px] rounded-md bg-gradient-to-br from-white/20 to-white/[0.05] border border-neutral-500 backdrop-blur-xl">
+      <div className="bg-gradient-to-br from-ziverium-blue to-ziverium-blue/30 p-3 rounded-full border-2 border-neutral-500 mb-4">
+        <Icon />
+      </div>
+      <h4 className="scroll-m-20 text-2xl font-medium mb-4">{title}</h4>
+      <p className="text-lg font-light text-neutral-300">{description}</p>
+    </div>
+  );
+}
+
+const cards: Card[] = [
+  {
+    title: "Accelerating Growth",
+    description:
+      "Empowering businesses to unify their operations, optimize their strategies, and accelerate growth—all from one intuitive interface.",
+    Icon: Factory,
+  },
+  {
+    title: "Providing Insights",
+    description:
+      "Empowering businesses to unify their operations, optimize their strategies, and accelerate growth—all from one intuitive interface.",
+    Icon: Factory,
+  },
+  {
+    title: "Generating Revenue",
+    description:
+      "Empowering businesses to unify their operations, optimize their strategies, and accelerate growth—all from one intuitive interface.",
+    Icon: Factory,
+  },
+];
+
+interface Card {
+  title: string;
+  description: string;
+  Icon: LucideIcon;
+}

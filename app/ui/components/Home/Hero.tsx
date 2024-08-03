@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import React from "react";
 import NorthernLights from "../NorthernLights";
+// import Spline from "@splinetool/react-spline/next";
 
 function Hero() {
   return (
@@ -20,7 +21,9 @@ function Hero() {
           <ArrowRight size={20} />
         </button>
       </div>
-      <div className=" w-full h-full bg-red-400"></div>
+      <div className=" w-full h-fit overflow-visible">
+        {/* <Spline scene="https://prod.spline.design/50s7CDe3XTgTbS2h/scene.splinecode" /> */}
+      </div>
     </div>
   );
 }
