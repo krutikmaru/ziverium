@@ -3,9 +3,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Internal Imports
-// import ThemeSwitcher from "@/app/ui/components/ThemeSwitcher";
-
 // UI Imports
 import {
   DropdownMenu,
@@ -13,16 +10,18 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+
+// Third Party Imports
 import { LogOut, Menu } from "lucide-react";
+
+// Internal Imports
+// import ThemeSwitcher from "@/app/ui/components/ThemeSwitcher";
+import { services as marketingServices } from "@/app/lib/data/services/marketing";
+import { services as itServices } from "@/app/lib/data/services/it-services";
 
 // Third Party Imports
 
@@ -51,31 +50,26 @@ const DesktopLinks = () => {
     <div className="hidden sm:flex items-center space-x-5 ">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Link href="/">Marketing</Link>
+          <span>Marketing</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 z-[10000]">
-          <DropdownMenuItem>
-            <span>Content Creation</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <span>Marketing</span>
-          </DropdownMenuItem>
+          {marketingServices.map((service) => (
+            <DropdownMenuItem key={service.name}>
+              <span>{service.name}</span>
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Link href="/">IT Services</Link>
+          <span>IT Services</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 z-[10000]">
-          <DropdownMenuItem>
-            <span>Website</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <span>Web Application</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <span>Mobile Application</span>
-          </DropdownMenuItem>
+          {itServices.map((service) => (
+            <DropdownMenuItem key={service.name}>
+              <span>{service.name}</span>
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
       <Link href="/contact">Contact</Link>
@@ -109,44 +103,41 @@ const MobileMenu = () => {
           <Menu />
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-44 mt-7 mr-4">
-          <DropdownMenuLabel>Marketing</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
+          <ScrollArea className="h-80 full">
+            <DropdownMenuLabel>Marketing</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              {marketingServices.map((service) => (
+                <DropdownMenuItem key={service.name}>
+                  <span>{service.name}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>IT Services</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuGroup>
+              {itServices.map((service) => (
+                <DropdownMenuItem key={service.name}>
+                  <span>{service.name}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuGroup>
+            <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <span>Content Creation</span>
+              <span>About</span>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <span>Marketing</span>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuLabel>IT Services</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem>
-              <span>Websites</span>
+              <span>Contact</span>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <span>Web Applications</span>
+              <span>My Account</span>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <span>Mobile Applications</span>
+              <LogOut className="mr-2 h-4 w-4" />
+              <span>Log out</span>
             </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>
-            <span>About</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <span>Contact</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <span>My Account</span>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <LogOut className="mr-2 h-4 w-4" />
-            <span>Log out</span>
-          </DropdownMenuItem>
+          </ScrollArea>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

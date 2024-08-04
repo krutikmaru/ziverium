@@ -1,9 +1,14 @@
-import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
-import { BentoCard, BentoGrid } from "@/components/magicui/bento-grid";
-import { cn } from "@/lib/utils";
-import { BadgeCheck, Heart, Package, Target, Users } from "lucide-react";
+import {
+  BadgeCheck,
+  Heart,
+  LucideIcon,
+  Package,
+  TargetIcon,
+  Users,
+} from "lucide-react";
+import Image from "next/image";
 
-const features = [
+export const services: Service[] = [
   {
     Icon: BadgeCheck,
     name: "Branding",
@@ -11,22 +16,26 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
         src="/marketing/branding.avif"
+        alt="Branding"
+        fill
         className="absolute w-full h-full object-cover opacity-60"
       />
     ),
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
   },
   {
-    Icon: Target,
+    Icon: TargetIcon,
     name: "Digital Marketing",
     description: "Promoting your brand online",
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
         src="/marketing/digital-marketing.avif"
+        alt="Branding"
+        fill
         className="absolute w-full h-full object-cover opacity-60"
       />
     ),
@@ -39,8 +48,10 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
         src="/marketing/social-media-marketing.avif"
+        alt="Branding"
+        fill
         className="absolute w-full h-full object-cover opacity-60"
       />
     ),
@@ -53,8 +64,10 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
         src="/marketing/package-designing.avif"
+        alt="Branding"
+        fill
         className="absolute w-full h-full object-cover opacity-60"
       />
     ),
@@ -67,8 +80,10 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
         src="/marketing/social-media-management.avif"
+        alt="Branding"
+        fill
         className="absolute w-full h-full object-cover opacity-60"
       />
     ),
@@ -76,33 +91,12 @@ const features = [
   },
 ];
 
-export function Bento() {
-  return (
-    <div className="flex flex-col justify-center items-center pt-10 relative">
-      <div className="w-[600px] h-[600px] bg-ziverium-blue/10 blur-3xl rounded-full absolute top-96 sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-
-      <div className="flex  items-center justify-center">
-        <div
-          className={cn(
-            "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800"
-          )}
-        >
-          <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-            <span>📢 Marketing</span>
-          </AnimatedShinyText>
-        </div>
-      </div>
-      <h1 className="scroll-m-20 text-4xl font-normal tracking-tight lg:text-6xl mt-6 mb-4 text-center w-full sm:w-[700px]">
-        Comprehensive Marketing Solutions
-      </h1>
-      <p className="text-lg font-light text-neutral-400 text-center px-5 sm:px-0">
-        Our Tailored strategies to boost your brands visibility and growth.
-      </p>
-      <BentoGrid className="lg:grid-rows-3 p-5 sm:p-20">
-        {features.map((feature) => (
-          <BentoCard key={feature.name} {...feature} />
-        ))}
-      </BentoGrid>
-    </div>
-  );
+interface Service {
+  Icon: LucideIcon;
+  name: string;
+  description: string;
+  href: string;
+  cta: string;
+  className: string;
+  background: React.ReactNode;
 }

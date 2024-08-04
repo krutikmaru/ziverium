@@ -4,7 +4,8 @@ import React from "react";
 import Hero from "@/app/ui/components/Home/Hero";
 import Clients from "@/app/ui/components/Home/Clients";
 import InfomationCards from "@/app/ui/components/Home/InfomationCards";
-import { Bento } from "@/app/ui/components/Home/BentoGrid";
+import { MarketingBento } from "@/app/ui/components/Home/MarketingBento";
+import { ITServicesBento } from "./ui/components/Home/ITServicesBento";
 
 // Third party imports
 
@@ -16,7 +17,8 @@ function Page() {
       <Hero />
       <Clients />
       <InfomationCards />
-      <Bento />
+      <MarketingBento />
+      <ITServicesBento />
     </div>
   );
 }
