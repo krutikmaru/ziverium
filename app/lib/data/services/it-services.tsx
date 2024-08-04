@@ -3,10 +3,11 @@ import Image from "next/image";
 
 export const services: Service[] = [
   {
+    slug: "websites",
     Icon: Globe,
     name: "Websites",
     description: "Managing and optimizing social media presence",
-    href: "/",
+    href: "/it-services/websites",
     cta: "Learn more",
     background: (
       <Image
@@ -19,10 +20,11 @@ export const services: Service[] = [
     className: "h-full",
   },
   {
+    slug: "web-applications",
     Icon: Laptop,
     name: "Web Application",
     description: "Managing and optimizing social media presence",
-    href: "/",
+    href: "/it-services/web-application",
     cta: "Learn more",
     background: (
       <Image
@@ -35,10 +37,11 @@ export const services: Service[] = [
     className: "h-full",
   },
   {
+    slug: "mobile-applications",
     Icon: Smartphone,
     name: "Mobile Applications",
     description: "Managing and optimizing social media presence",
-    href: "/",
+    href: "/it-services/mobile-application",
     cta: "Learn more",
     background: (
       <Image
@@ -53,6 +56,7 @@ export const services: Service[] = [
 ];
 
 interface Service {
+  slug: string;
   Icon: LucideIcon;
   name: string;
   description: string;

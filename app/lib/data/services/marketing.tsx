@@ -10,10 +10,11 @@ import Image from "next/image";
 
 export const services: Service[] = [
   {
+    slug: "branding",
     Icon: BadgeCheck,
     name: "Branding",
     description: "Building a unique business identity.",
-    href: "/",
+    href: "/marketing-services/branding",
     cta: "Learn more",
     background: (
       <Image
@@ -26,10 +27,11 @@ export const services: Service[] = [
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
   },
   {
+    slug: "digital-marketing",
     Icon: TargetIcon,
     name: "Digital Marketing",
     description: "Promoting your brand online",
-    href: "/",
+    href: "/marketing-services/digital-marketing",
     cta: "Learn more",
     background: (
       <Image
@@ -42,10 +44,11 @@ export const services: Service[] = [
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
   },
   {
+    slug: "social-media-marketing",
     Icon: Heart,
     name: "Social Media Marketing",
     description: "Advertising on social media platforms.",
-    href: "/",
+    href: "/marketing-services/social-media-marketing",
     cta: "Learn more",
     background: (
       <Image
@@ -58,10 +61,11 @@ export const services: Service[] = [
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
   },
   {
+    slug: "package-designing",
     Icon: Package,
     name: "Package Designing",
     description: "Crafting attractive and functional product packaging.",
-    href: "/",
+    href: "/marketing-services/package-designing",
     cta: "Learn more",
     background: (
       <Image
@@ -74,10 +78,11 @@ export const services: Service[] = [
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
   },
   {
+    slug: "social-media-management",
     Icon: Users,
     name: "Social Media Management",
     description: "Managing and optimizing social media presence",
-    href: "/",
+    href: "/marketing-services/social-media-management",
     cta: "Learn more",
     background: (
       <Image
@@ -92,6 +97,7 @@ export const services: Service[] = [
 ];
 
 interface Service {
+  slug: string;
   Icon: LucideIcon;
   name: string;
   description: string;

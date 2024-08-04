@@ -1,3 +1,4 @@
+"use client";
 // Next & React imports
 import React from "react";
 

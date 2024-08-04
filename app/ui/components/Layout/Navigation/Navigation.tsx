@@ -55,7 +55,9 @@ const DesktopLinks = () => {
         <DropdownMenuContent className="w-56 z-[10000]">
           {marketingServices.map((service) => (
             <DropdownMenuItem key={service.name}>
-              <span>{service.name}</span>
+              <Link className=" w-full" href={service.href}>
+                {service.name}
+              </Link>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
@@ -67,7 +69,7 @@ const DesktopLinks = () => {
         <DropdownMenuContent className="w-56 z-[10000]">
           {itServices.map((service) => (
             <DropdownMenuItem key={service.name}>
-              <span>{service.name}</span>
+              <Link href={service.href}>{service.name}</Link>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
@@ -109,7 +111,7 @@ const MobileMenu = () => {
             <DropdownMenuGroup>
               {marketingServices.map((service) => (
                 <DropdownMenuItem key={service.name}>
-                  <span>{service.name}</span>
+                  <Link href={service.href}>{service.name}</Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuGroup>
@@ -119,7 +121,7 @@ const MobileMenu = () => {
             <DropdownMenuGroup>
               {itServices.map((service) => (
                 <DropdownMenuItem key={service.name}>
-                  <span>{service.name}</span>
+                  <Link href={service.href}>{service.name}</Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuGroup>
