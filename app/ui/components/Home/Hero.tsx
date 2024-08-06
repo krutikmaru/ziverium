@@ -10,7 +10,7 @@ function Hero() {
       <NorthernLights />
       <div className=" w-full h-full flex flex-col items-center md:items-start justify-center relative z-20 mt-36 md:mt-0 mb-10">
         <h1 className="scroll-m-20 text-7xl font-normal tracking-tight lg:text-8xl mb-4">
-          Ziverium Experimental
+          Ziverium Standard
         </h1>
         <p className="text-base md:text-xl font-light text-neutral-300 mb-5 text-center md:text-left">
           Empowering businesses to unify their operations, optimize their
