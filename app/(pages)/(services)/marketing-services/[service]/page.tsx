@@ -1,43 +1,60 @@
-import { services } from "@/app/lib/data/services/marketing";
-import NorthernLights from "@/app/ui/components/NorthernLights";
-import Image from "next/image";
+// Next & React Imports
 import React from "react";
+import Image from "next/image";
+
+// Third party imports
+import {
+  CircleHelp,
+  HandCoins,
+  Handshake,
+  Layers3,
+  PackageCheck,
+  Trophy,
+} from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
+// Internal Imports
+import { services } from "@/app/lib/data/services/marketing";
 
 function Page({ params }: { params: { service: string } }) {
   const service = services.find((service) => service.slug === params.service);
-
+  if (!service) {
+    return <h1>No Such Service</h1>;
+  }
   return (
-    <div className="px-10 sm:px-20 py-28">
-      <div className="flex flex-col md:flex-row justify-between items-center space-x-0 space-y-4 md:space-x-4 md:space-y-0">
-        <div className="w-full h-full ">
+    <div className="px-7 sm:px-20 py-28">
+      {/* Header Texts */}
+      <div className="flex flex-col-reverse lg:flex-row justify-between items-start space-x-0 space-y-4 lg:space-x-4 lg:space-y-0">
+        <div className="w-full h-full mt-6 lg:mt-0">
+          {/* Service Name */}
           <h1 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-5xl">
-            Social Media Marketing
+            {service.name}
           </h1>
+          {/* Service Overview */}
           <p className="leading-7 text-neutral-400 text-lg [&:not(:first-child)]:mt-6">
-            Maximize your online impact and engage your audience with strategic
-            social media marketing.
+            {service.overview}
           </p>
+          {/* Service Tags */}
           <div className="w-full flex flex-wrap mt-5">
-            <div className="bg-neutral-800/50 rounded-full backdrop-blur-xl py-1 px-6 border-2 border-neutral-700/30 mr-2 mb-2 ">
-              SMM
-            </div>
-            <div className="bg-neutral-800/50 rounded-full backdrop-blur-xl py-1 px-6 border-2 border-neutral-700/30 mr-2 mb-2 ">
-              Content Creation
-            </div>
-            <div className="bg-neutral-800/50 rounded-full backdrop-blur-xl py-1 px-6 border-2 border-neutral-700/30 mr-2 mb-2 ">
-              Engagement
-            </div>
-            <div className="bg-neutral-800/50 rounded-full backdrop-blur-xl py-1 px-6 border-2 border-neutral-700/30 mr-2 mb-2 ">
-              Organic Reach
-            </div>
-            <div className="bg-neutral-800/50 rounded-full backdrop-blur-xl py-1 px-6 border-2 border-neutral-700/30 mr-2 mb-2 ">
-              Community Management
-            </div>
+            {service.tags.map((tag) => (
+              <div
+                key={tag}
+                className="bg-neutral-800/50 rounded-full backdrop-blur-xl py-1 px-6 border-2 border-neutral-700/30 mr-2 mb-2 "
+              >
+                {tag}
+              </div>
+            ))}
           </div>
         </div>
-        <div className="w-full bg-neutral-800/20 border-4 border-neutral-700/30 backdrop-blur-2xl h-96 rounded-md overflow-hidden relative">
+        {/* Service Image */}
+        <div className="w-full bg-neutral-800/20 border-2 border-neutral-700/30 backdrop-blur-2xl h-96 rounded-md overflow-hidden relative">
           <Image
-            src="/marketing/social-media-marketing.avif"
+            src={service.cover}
             alt="Branding"
             fill
             className="absolute w-full h-full object-cover rounded-md"
@@ -45,67 +62,110 @@ function Page({ params }: { params: { service: string } }) {
         </div>
       </div>
       <div className="mt-10 md:mt-5">
-        <div>
-          <h2 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-4xl">
-            What you&apos;ll get
-          </h2>
-          <p className="leading-7 text-neutral-400 text-lg [&:not(:first-child)]:mt-6">
-            Harness the power of social media with Ziverium’s tailored marketing
-            strategies. Our social media marketing services focus on creating
-            engaging content, managing campaigns, and fostering community
-            interaction across platforms like Facebook, Instagram, Twitter, and
-            LinkedIn. By understanding your brand and audience, we craft
-            messages that resonate and drive engagement, helping you build
-            strong relationships and expand your reach.
+        {/* What we offer */}
+        <div className="mb-6">
+          <div className="flex flex-col space-y-2 justify-start items-start mb-4 sm:flex-row sm:space-x-2 sm:space-y-0 sm:items-center">
+            <PackageCheck size={44} />
+            <h2 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-4xl">
+              What We Offer
+            </h2>
+          </div>
+          <ul>
+            {service.whatWeOffer.map((offering) => (
+              <li
+                key={offering.title}
+                className="leading-7 text-neutral-400 text-lg mb-2"
+              >
+                <span className="font-medium underline">{offering.title}</span>:{" "}
+                {offering.description}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* How We Work */}
+        <div className="mb-6">
+          <div className="flex flex-col space-y-2 justify-start items-start mb-4 sm:flex-row sm:space-x-2 sm:space-y-0 sm:items-center">
+            <Layers3 size={44} />
+            <h2 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-4xl">
+              How We Work
+            </h2>
+          </div>
+          <p className="leading-7 text-neutral-400 text-lg mb-2">
+            {service.howWeWork}
           </p>
         </div>
-        <div>
-          <h2 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-4xl mt-10 mb-4">
-            Benefits
-          </h2>
-          <div className="flex flex-col space-y-2">
-            <div className="bg-neutral-900/80 backdrop-blur-lg p-5 rounded-lg ">
-              <span className="leading-7 text-neutral-200 text-xl">
-                Increased Engagement:{" "}
-              </span>
-              <p className="leading-7 text-neutral-400 ">
-                Foster active interaction with your audience.
-              </p>
-            </div>
-            <div className="bg-neutral-900/80 backdrop-blur-lg p-5 rounded-lg ">
-              <span className="leading-7 text-neutral-200 text-xl">
-                Brand Loyalty
-              </span>
-              <p className="leading-7 text-neutral-400 ">
-                Build a loyal community around your brand.
-              </p>
-            </div>
-            <div className="bg-neutral-900/80 backdrop-blur-lg p-5 rounded-lg ">
-              <span className="leading-7 text-neutral-200 text-xl">
-                Targeted Campaigns
-              </span>
-              <p className="leading-7 text-neutral-400 ">
-                Reach specific demographics with tailored ads and content.
-              </p>
-            </div>
-            <div className="bg-neutral-900/80 backdrop-blur-lg p-5 rounded-lg ">
-              <span className="leading-7 text-neutral-200 text-xl">
-                Improved Visibility
-              </span>
-              <p className="leading-7 text-neutral-400 ">
-                Enhance your brand’s presence on major social media platforms.
-              </p>
-            </div>
-            <div className="bg-neutral-900/80 backdrop-blur-lg p-5 rounded-lg ">
-              <span className="leading-7 text-neutral-200 text-xl">
-                Analytics & Insights
-              </span>
-              <p className="leading-7 text-neutral-400 ">
-                Gain valuable insights through performance tracking and
-                analysis.
-              </p>
-            </div>
+        {/* What You Receive */}
+        <div className="mb-6">
+          <div className="flex flex-col space-y-2 justify-start items-start mb-4 sm:flex-row sm:space-x-2 sm:space-y-0 sm:items-center">
+            <HandCoins size={44} />
+            <h2 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-4xl">
+              What You Receive
+            </h2>
           </div>
+          <p className="leading-7 text-neutral-400 text-lg mb-2">
+            {service.whatYouReceive}
+          </p>
+        </div>
+        {/* How It Helps Your Business */}
+        <div className="mb-6">
+          <div className="flex flex-col space-y-2 justify-start items-start mb-4 sm:flex-row sm:space-x-2 sm:space-y-0 sm:items-center">
+            <Handshake size={44} />
+            <h2 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-4xl">
+              How It Helps Your Business
+            </h2>
+          </div>
+          <p className="leading-7 text-neutral-400 text-lg mb-2">
+            {service.howItHelpsYourBusiness}
+          </p>
+        </div>
+        {/* Benefits */}
+        <div className="mb-6">
+          <div className="flex flex-col space-y-2 justify-start items-start mb-4 sm:flex-row sm:space-x-2 sm:space-y-0 sm:items-center">
+            <Trophy size={44} />
+            <h2 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-4xl">
+              Benefits
+            </h2>
+          </div>
+          <div className="flex flex-col space-y-2">
+            {service.benefits.map((benefit) => (
+              <div
+                key={benefit.title}
+                className="bg-neutral-900/80 backdrop-blur-lg p-5 rounded-lg "
+              >
+                <span className="leading-7 text-neutral-200 text-xl">
+                  {benefit.title}
+                </span>
+                <p className="text-neutral-400 mt-2">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* FAQ's */}
+        <div className="mb-6">
+          <div className="flex flex-col space-y-2 justify-start items-start mb-4 sm:flex-row sm:space-x-2 sm:space-y-0 sm:items-center">
+            <CircleHelp size={44} />
+            <h2 className="scroll-m-20 text-4xl font-medium tracking-tight lg:text-4xl">
+              FAQ&apos;s
+            </h2>
+          </div>
+          {service.faqs.map((faq) => (
+            <Accordion
+              key={faq.question}
+              type="single"
+              collapsible
+              className="w-full"
+            >
+              <AccordionItem
+                value={faq.question}
+                className="border-neutral-800 text-lg"
+              >
+                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-lg">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          ))}
         </div>
       </div>
     </div>

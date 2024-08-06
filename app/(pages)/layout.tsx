@@ -4,8 +4,6 @@ import "../globals.css";
 import Providers from "../lib/Providers";
 import { cn } from "@/lib/utils";
 import Navigation from "@/app/ui/components/Layout/Navigation/Navigation";
-import GradientMouseFollow from "@/app/ui/components/GradientMouseFollow";
-// import "tailwindcss/tailwind.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -31,7 +29,6 @@ export default function RootLayout({
       >
         <Providers>
           <Navigation />
-          <GradientMouseFollow />
           {children}
         </Providers>
       </body>

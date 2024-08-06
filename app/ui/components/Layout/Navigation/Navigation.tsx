@@ -28,14 +28,16 @@ import { services as itServices } from "@/app/lib/data/services/it-services";
 function Navigation() {
   return (
     <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000] w-[90%] flex justify-between items-center bg-white/10 backdrop-blur-3xl py-3 px-8 rounded-full border-[1px] border-[#585858]">
-      <Image
-        className="opacity-60"
-        src="/ziverium.png"
-        alt="Ziverium Logo"
-        width={32}
-        height={32}
-        priority
-      />
+      <Link href={"/"}>
+        <Image
+          className="opacity-60"
+          src="/ziverium.png"
+          alt="Ziverium Logo"
+          width={32}
+          height={32}
+          priority
+        />
+      </Link>
       <DesktopLinks />
       <UserActions />
 
@@ -49,7 +51,7 @@ const DesktopLinks = () => {
   return (
     <div className="hidden sm:flex items-center space-x-5 ">
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
+        <DropdownMenuTrigger className="cursor-pointer" asChild>
           <span>Marketing</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 z-[10000]">
@@ -63,7 +65,7 @@ const DesktopLinks = () => {
         </DropdownMenuContent>
       </DropdownMenu>
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
+        <DropdownMenuTrigger className="cursor-pointer" asChild>
           <span>IT Services</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56 z-[10000]">
@@ -75,7 +77,7 @@ const DesktopLinks = () => {
         </DropdownMenuContent>
       </DropdownMenu>
       <Link href="/contact">Contact</Link>
-      <Link href="/about">About</Link>
+      {/* <Link href="/about">About</Link> */}
     </div>
   );
 };
@@ -83,7 +85,7 @@ const DesktopLinks = () => {
 const UserActions = () => {
   return (
     <div className="flex items-center space-x-2">
-      <div className="w-10 h-10 rounded-full relative border-2 border-[#0bbbbb]">
+      {/* <div className="w-10 h-10 rounded-full relative border-2 border-[#0bbbbb]">
         <Image
           src="/user.jpg"
           alt="User"
@@ -91,7 +93,7 @@ const UserActions = () => {
           className="rounded-full"
           priority
         />
-      </div>
+      </div> */}
       <MobileMenu />
     </div>
   );
@@ -125,7 +127,7 @@ const MobileMenu = () => {
                 </DropdownMenuItem>
               ))}
             </DropdownMenuGroup>
-            <DropdownMenuSeparator />
+            {/* <DropdownMenuSeparator />
             <DropdownMenuItem>
               <span>About</span>
             </DropdownMenuItem>
@@ -138,7 +140,7 @@ const MobileMenu = () => {
             <DropdownMenuItem>
               <LogOut className="mr-2 h-4 w-4" />
               <span>Log out</span>
-            </DropdownMenuItem>
+            </DropdownMenuItem> */}
           </ScrollArea>
         </DropdownMenuContent>
       </DropdownMenu>

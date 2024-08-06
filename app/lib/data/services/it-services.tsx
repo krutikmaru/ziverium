@@ -1,5 +1,6 @@
-import { Globe, Laptop, LucideIcon, Smartphone } from "lucide-react";
+import { Globe, Laptop, Smartphone } from "lucide-react";
 import Image from "next/image";
+import { Service } from "../../types/data/it-services";
 
 export const services: Service[] = [
   {
@@ -54,14 +55,3 @@ export const services: Service[] = [
     className: "h-full",
   },
 ];
-
-interface Service {
-  slug: string;
-  Icon: LucideIcon;
-  name: string;
-  description: string;
-  href: string;
-  cta: string;
-  className: string;
-  background: React.ReactNode;
-}

@@ -9,6 +9,7 @@ import { ITServicesBento } from "../ui/components/Home/ITServicesBento";
 // Third party imports
 
 // Internal imports
+import GradientMouseFollow from "@/app/ui/components/GradientMouseFollow";
 
 function Page() {
   return (
@@ -18,6 +19,7 @@ function Page() {
       <InfomationCards />
       <MarketingBento />
       <ITServicesBento />
+      <GradientMouseFollow />
     </div>
   );
 }
