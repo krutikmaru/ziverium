@@ -17,8 +17,8 @@ function Page() {
       <Hero />
       <Clients />
       <InfomationCards />
-      <MarketingBento />
       <ITServicesBento />
+      <MarketingBento />
       <GradientMouseFollow />
     </div>
   );

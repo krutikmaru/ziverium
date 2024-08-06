@@ -1,12 +1,36 @@
 import { LucideIcon } from "lucide-react";
 
-export interface Service {
+type BrandingService = {
+  title: string;
+  description: string;
+};
+
+type Benefit = {
+  title: string;
+  description: string;
+};
+
+type FAQ = {
+  question: string;
+  answer: string;
+};
+
+export type ITService = {
   slug: string;
-  Icon: LucideIcon;
+  Icon: React.ComponentType;
   name: string;
   description: string;
   href: string;
   cta: string;
-  className: string;
   background: React.ReactNode;
-}
+  className: string;
+  cover: string;
+  overview: string;
+  tags: string[];
+  whatWeOffer: BrandingService[];
+  howWeWork: string;
+  whatYouReceive: string;
+  howItHelpsYourBusiness: string;
+  benefits: Benefit[];
+  faqs: FAQ[];
+};

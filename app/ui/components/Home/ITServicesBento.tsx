@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon } from "lucide-react";
 import { services } from "@/app/lib/data/services/it-services";
+import Link from "next/link";
 
 export function ITServicesBento() {
   return (
@@ -87,10 +88,10 @@ const BentoCard = ({
         size="sm"
         className="pointer-events-auto "
       >
-        <a href={href}>
+        <Link href={href}>
           {cta}
           <ArrowRightIcon className="ml-2 h-4 w-4" />
-        </a>
+        </Link>
       </Button>
     </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />

@@ -21,6 +21,8 @@ import {
 // Internal Imports
 import { services } from "@/app/lib/data/services/marketing";
 
+// Pages for IT and Marketing Services are same yet made separately -> considering a future case where structure of either of them changes.
+
 function Page({ params }: { params: { service: string } }) {
   const service = services.find((service) => service.slug === params.service);
   if (!service) {
