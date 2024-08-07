@@ -18,7 +18,7 @@ function FooterTicker() {
   return (
     <div className="w-full relative">
       <Marquee className="w-full [--duration:20s] mt-5">
-        <h3 className="scroll-m-20 mr-20 pb-2 text-5xl sm:text-7xl md:text-8xl font-medium tracking-tighter lg:text-9xl text-black dark:text-neutral-900">
+        <h3 className="scroll-m-20 mr-20 pb-2 font-medium tracking-tighter text-9xl text-black dark:text-neutral-900">
           ZIVERIUM
         </h3>
         <h3 className="scroll-m-20 mr-20 text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tight lg:text-9xl text-black dark:text-neutral-900">
@@ -97,9 +97,9 @@ function LinksColumn({
   links: { title: string; href: string }[];
 }) {
   return (
-    <div className="w-full h-full flex flex-col space-y-2 justify-start items-center">
-      <div className="flex flex-col justify-center items-center md:items-start space-y-2">
-        <h4 className="text-4xl font-medium text-neutral-500 dark:text-neutral-700 mb-2">
+    <div className="w-full h-full flex flex-col space-y-2 justify-start items-center md:items-start px-5 sm:px-20 mb-10 md:mb-0 ">
+      <div className="flex flex-col justify-start items-center md:items-start space-y-2">
+        <h4 className="text-4xl font-medium text-neutral-500 dark:text-neutral-700 ">
           {title}
         </h4>
         {links.map((link) => (
