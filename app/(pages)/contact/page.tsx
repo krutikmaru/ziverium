@@ -6,7 +6,7 @@ export default function Page() {
   const { width } = useWindowSize();
   const isMobile = width !== undefined && width <= 768;
   return (
-    <main className="flex min-h-screen">
+    <main className="flex ">
       {isMobile ? <BusinessCardMobile /> : <BusinessCardMobile />}
     </main>
   );

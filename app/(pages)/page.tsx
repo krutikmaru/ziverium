@@ -13,7 +13,7 @@ import GradientMouseFollow from "@/app/ui/components/GradientMouseFollow";
 
 function Page() {
   return (
-    <div className="text-black dark:text-white relative overflow-hidden ">
+    <div className="text-white relative overflow-hidden ">
       <Hero />
       <Clients />
       <InfomationCards />

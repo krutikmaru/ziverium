@@ -27,7 +27,7 @@ import { services as itServices } from "@/app/lib/data/services/it-services";
 
 function Navigation() {
   return (
-    <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000] w-[90%] flex justify-between items-center bg-white/10 backdrop-blur-3xl py-3 px-8 rounded-full border-[1px] border-[#585858]">
+    <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[1000] w-[90%] flex justify-between items-center bg-white/10 backdrop-blur-3xl py-3 px-8 rounded-full border-[1px] text-white border-[#585858]">
       <Link href={"/"}>
         <Image
           className="opacity-60"

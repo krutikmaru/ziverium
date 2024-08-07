@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 function BusinessCardMobile() {
   return (
-    <div className="w-full bg-[url('/business-card/ios-wallpaper.png')] bg-cover">
+    <div className="w-full min-h-screen bg-[url('/business-card/ios-wallpaper.png')] bg-cover">
       <ScreenContent />
     </div>
   );
@@ -14,7 +15,7 @@ export default BusinessCardMobile;
 
 function ScreenContent() {
   return (
-    <div className="relative z-10 pb-10 h-screen xs:h-full flex flex-col justify-start items-center text-white">
+    <div className="relative h-full z-10 pb-10 flex flex-col justify-start items-center text-white">
       <StatusBar />
       <DateTime />
       <Notifications />
@@ -114,17 +115,29 @@ function DateTime() {
 }
 
 function Notifications() {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+  };
   return (
     <div className="w-full h-full px-5 tracking-tight flex flex-col items-center space-y-2">
-      {notifications.map((notification) => (
-        <Notification
+      {notifications.map((notification, index) => (
+        <motion.div
+          className="w-full flex justify-center items-center"
           key={notification.id}
-          appIcon={notification.appIcon}
-          title={notification.title}
-          description={notification.description}
-          time={notification.time}
-          href={notification.href}
-        />
+          initial="initial"
+          animate="animate"
+          variants={fadeInUp}
+          transition={{ delay: index * 0.08, duration: 0.4, ease: "easeOut" }}
+        >
+          <Notification
+            appIcon={notification.appIcon}
+            title={notification.title}
+            description={notification.description}
+            time={notification.time}
+            href={notification.href}
+          />
+        </motion.div>
       ))}
     </div>
   );
