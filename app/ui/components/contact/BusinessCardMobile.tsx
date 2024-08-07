@@ -103,11 +103,11 @@ function StatusBar() {
 
 function DateTime() {
   return (
-    <div className="w-full   py-2 xs:py-6 flex flex-col items-center space-y-4">
+    <div className="w-full py-2 xs:py-6 flex flex-col items-center space-y-4">
       <p className="text-md xs:text-xl font-medium tracking-tight">
         Saturday, July 6
       </p>
-      <h1 className="text-6xl xs:text-8xl sm:text-9xl font-semibold tracking-tighter">
+      <h1 className="text-8xl sm:text-9xl font-semibold tracking-tighter ">
         9:41
       </h1>
     </div>
@@ -120,7 +120,7 @@ function Notifications() {
     animate: { opacity: 1, y: 0 },
   };
   return (
-    <div className="w-full h-full px-5 tracking-tight flex flex-col items-center space-y-2">
+    <div className="w-full h-full px-5 tracking-tight flex flex-col items-center space-y-2 mt-5">
       {notifications.map((notification, index) => (
         <motion.div
           className="w-full flex justify-center items-center"
