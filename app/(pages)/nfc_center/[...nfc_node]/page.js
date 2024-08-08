@@ -1,19 +1,11 @@
 "use client";
-import { supabaseClient } from "@/app/lib/supabase/supabase";
 import NorthernLights from "@/app/ui/components/NorthernLights";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useViews } from "@/app/lib/hooks/useViews";
 
 export default function NFC_Node({ params }) {
-  const {
-    views,
-    domain,
-    insertViews,
-    getViews,
-    unSubToViews,
-    fetchDomainByCustId,
-  } = useViews();
+  const { fetchDomainByCustId } = useViews();
   //First time user
   const [firstTimeUser, setFirstTimeUser] = useState(true);
 
