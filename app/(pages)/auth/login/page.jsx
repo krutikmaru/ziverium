@@ -89,8 +89,8 @@ export default function LoginPage() {
           <p className="text-base md:text-xl font-light text-neutral-300 mb-5 text-center md:text-left">
             Welcome to our website! Please log in using your credentials to
             access your account and explore personalized features. If you
-            encounter any issues, use the "Forgot Password" link or contact
-            support for assistance.
+            encounter any issues, use the &quot;Forgot Password&quot; link or
+            contact support for assistance.
           </p>
           <Input
             type="email"
