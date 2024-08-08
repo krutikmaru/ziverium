@@ -26,7 +26,7 @@ import { LogIn, LogOut, Menu } from "lucide-react";
 import { services as marketingServices } from "@/app/lib/data/services/marketing";
 import { services as itServices } from "@/app/lib/data/services/it-services";
 import { Details as Profile } from "@/app/lib/data/profile/Account";
-import router from "next/router";
+import { supabaseClient } from "@/app/lib/supabase/supabase";
 
 // Third Party Imports
 
@@ -96,8 +96,8 @@ const UserActions = () => {
     async function getUser() {
       const {
         data: { user },
-      } = await supabase.auth.getUser();
-      setCurrentUser(user);
+      } = await supabaseClient.auth.getUser();
+      // setCurrentUser(user);
       setLoading(false);
     }
     getUser();
@@ -109,7 +109,7 @@ const UserActions = () => {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    setCurrentUser(null);
+    // setCurrentUser(null);
     setLoading(false);
     router.refresh();
   };
