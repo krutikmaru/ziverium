@@ -126,7 +126,7 @@ export default function NFC_Build() {
           >
             <span>Set Domain </span>
           </button>
-          <button
+          {/* <button
             className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 "
             onClick={unsub}
           >
@@ -137,7 +137,7 @@ export default function NFC_Build() {
             onClick={fetchUser}
           >
             <span>Fetch User</span>
-          </button>
+          </button> */}
         </div>
         <div className=" w-full h-full relative overflow-visible bg-transparent"></div>
       </div>
