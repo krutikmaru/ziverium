@@ -6,11 +6,8 @@ import { useViews } from "@/app/lib/hooks/useViews";
 
 export default function NFC_Node({ params }) {
   const { fetchDomainByCustId } = useViews();
-  //First time user
-  const [firstTimeUser, setFirstTimeUser] = useState(true);
 
   //Fetch the The domain link user has stored in database
-  const [redirectPage, setRedirectPage] = useState("https://www.ziverium.com/");
   const redirectToDomainBuild = () => {
     //Check is user is First time user
 
@@ -18,7 +15,9 @@ export default function NFC_Node({ params }) {
       //Storing Custid in session
       console.log("CustId Sent", params.nfc_node[1]);
       sessionStorage.setItem("CustomerID", params.nfc_node[1]);
-      window.location.href = "/nfc_center/nfc_build"; // You can use an absolute or relative URL
+      setTimeout(() => {
+        window.location.href = "/nfc_center/nfc_build"; // You can use an absolute or relative URL
+      }, 2000); // 2 seconds
     }
   };
   useEffect(() => {
@@ -27,12 +26,16 @@ export default function NFC_Node({ params }) {
         .then((res) => {
           if (res === null || res === "") {
             console.log("Temp domain is empty");
-            redirectToDomainBuild();
+            setTimeout(() => {
+              redirectToDomainBuild();
+            }, 2000); // 2 seconds
           } else {
             console.log("Temp Domain:", res);
             setRedirectPage(res);
             console.log("Redirect Page set to:", res); // Note: `redirectPage` won't be updated immediately here
-            window.location.href = res;
+            setTimeout(() => {
+              window.location.href = res;
+            }, 2000); // 2 seconds
           }
         })
         .catch((error) => {
@@ -56,7 +59,7 @@ export default function NFC_Node({ params }) {
             Powered by Ziverium Please wait...
           </p>
           <button className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 ">
-            <span>Change URL</span>
+            <span>Place Holder</span>
           </button>
         </div>
         <div className=" w-full h-full relative overflow-visible bg-transparent"></div>

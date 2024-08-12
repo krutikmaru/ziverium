@@ -47,6 +47,11 @@ export default function NFC_Build() {
     setDomainSet(true);
     // getViews();
   };
+  //Switching to creating Landing page
+  const createBusinessPage = () => {
+    // Ensure domain is a proper URI
+    window.location.href = "/nfc_center/nfc_pagecooking"; // You can use an absolute or relative URL
+  };
   const formatDomain = (domain: string): string => {
     // Check if the domain starts with 'http://', 'https://', or 'www.'
     if (!/^https?:\/\//i.test(domain) && !/^www\./i.test(domain)) {
@@ -78,7 +83,7 @@ export default function NFC_Build() {
         <NorthernLights />
         <div className=" w-full h-full flex flex-col items-center md:items-start justify-center relative z-20 mt-36 md:mt-0 mb-10">
           <h1 className="scroll-m-20 text-7xl font-normal tracking-tight lg:text-8xl mb-4">
-            NFC Node
+            NFC Build
           </h1>
           <p className="text-base md:text-xl font-light text-neutral-300 mb-5 text-center md:text-left">
             Link Your NFC Your to Domain here {customer_ID}
@@ -125,6 +130,12 @@ export default function NFC_Build() {
             onClick={addDomain}
           >
             <span>Set Domain </span>
+          </button>
+          <button
+            className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 "
+            onClick={createBusinessPage}
+          >
+            <span>Let's add a stylish landing page for you </span>
           </button>
           {/* <button
             className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 "
