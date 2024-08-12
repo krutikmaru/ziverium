@@ -97,7 +97,8 @@ export default function NFC_Hub() {
           </p>
           <p className="text-base md:text-xl font-light text-neutral-300 mb-5 text-center md:text-left">
             NFC Data: {nfcData}
-            {JSON.stringify(queryParams, null, 2)}
+          </p>
+          <p className="text-base md:text-xl font-light text-neutral-300 mb-5 text-center md:text-left">
             Cust ID from Link: {queryParams.CustID}
           </p>
           <button
