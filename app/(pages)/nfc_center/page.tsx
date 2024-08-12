@@ -16,9 +16,12 @@ export default function NFC_Hub() {
           const records = message.records;
 
           // Process the NFC data
-          setNfcData(
-            `NFC Data: ${records.map((record: any) => record.data).join(", ")}`
-          );
+          const urlDecoder = new TextDecoder("utf-8");
+          const url = urlDecoder.decode(records.data);
+          // setNfcData(
+          //   `NFC Data: ${records.map((record: any) => record.data).join(", ")}`
+          // );
+          setNfcData(`NFC Data: ${url}`);
           setStatus("NFC scan successful!");
         });
 
