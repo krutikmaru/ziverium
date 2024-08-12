@@ -7,14 +7,7 @@ import { useViews } from "@/app/lib/hooks/useViews";
 export default function NFC_Build() {
   const [domainChoosen, setDomainChoosen] = useState<string>("");
   const [domainSet, setDomainSet] = useState(false);
-  const {
-    views,
-    domain,
-    insertViews,
-    getViews,
-    unSubToViews,
-    fetchDomainByCustId,
-  } = useViews();
+  const { views, domain, insertViews, getViews, unSubToViews } = useViews();
   const [customer_ID, setCustomer_ID] = useState<string | null>("");
 
   //Subbing to Realtime Db

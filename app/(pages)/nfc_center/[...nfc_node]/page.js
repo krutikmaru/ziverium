@@ -1,7 +1,7 @@
 "use client";
 import NorthernLights from "@/app/ui/components/NorthernLights";
 import React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useViews } from "@/app/lib/hooks/useViews";
 
 export default function NFC_Node({ params }) {
