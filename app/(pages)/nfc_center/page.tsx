@@ -2,10 +2,16 @@
 import NorthernLights from "@/app/ui/components/NorthernLights";
 import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 export default function NFC_Hub() {
+  const [pathName, setPathName] = useState("");
+  const [queryParams, setQueryParams] = useState<{ [key: string]: string }>({});
+
   const [status, setStatus] = useState("");
+  const [scanProgress, setScanProgress] = useState("Not Scanning");
   const [nfcData, setNfcData] = useState("");
   const handleScan = async () => {
+    setScanProgress("Scanning");
     if ("NDEFReader" in window) {
       try {
         const reader: any = new (window as any).NDEFReader();
@@ -16,13 +22,23 @@ export default function NFC_Hub() {
           const records = message.records;
 
           // Process the NFC data
-          const urlDecoder = new TextDecoder("utf-8");
-          const url = urlDecoder.decode(records.data);
-          // setNfcData(
-          //   `NFC Data: ${records.map((record: any) => record.data).join(", ")}`
-          // );
-          setNfcData(`NFC Data: ${url}`);
-          setStatus("NFC scan successful!");
+          const urls = records
+            .filter((record: any) => record.recordType === "url") // Filter for URL records
+            .map((record: any) => {
+              const textDecoder = new TextDecoder("utf-8"); // Decode using UTF-8
+              return textDecoder.decode(record.data); // Decode the data
+            });
+
+          // Display the extracted URLs
+          if (urls.length > 0) {
+            setNfcData(`NFC Data: ${urls.join(", ")}`);
+            setStatus("NFC scan successful!");
+            setScanProgress("");
+          } else {
+            setNfcData("No URL records found.");
+            setStatus("NFC scan successful, but no URL records found.");
+            setScanProgress("");
+          }
         });
 
         reader.addEventListener("error", (event: any) => {
@@ -37,6 +53,29 @@ export default function NFC_Hub() {
       setStatus("NFC is not supported on this device.");
     }
   };
+  useEffect(() => {
+    // Ensure this code only runs in the browser
+    if (typeof window !== "undefined") {
+      // Get the current path from the window location
+      const path = window.location.pathname.replace("/", "");
+      setPathName(path);
+      console.log("Current Path" + path);
+      console.log("Current Path" + window.location);
+    }
+    if (typeof window !== "undefined") {
+      // Grab the current URL search parameters
+      const searchParams = new URLSearchParams(window.location.search);
+
+      // Convert search parameters to a plain object
+      const params: { [key: string]: string } = {};
+      searchParams.forEach((value, key) => {
+        params[key] = value;
+      });
+
+      setQueryParams(params);
+      console.log("Query Param Path ");
+    }
+  }, []);
   return (
     <div className="text-black dark:text-white relative overflow-hidden ">
       <div className="flex flex-col md:flex-row justify-center items-center w-screen min-h-screen relative overflow-hidden px-5 md:px-20">
@@ -51,10 +90,15 @@ export default function NFC_Hub() {
           </p>
 
           <p className="text-base md:text-xl font-light text-neutral-300 mb-5 text-center md:text-left">
-            NEF Status: {status}
+            NFC Status: {status}
+          </p>
+          <p className="text-base md:text-xl font-light text-neutral-300 mb-5 text-center md:text-left">
+            Scan: {scanProgress}
           </p>
           <p className="text-base md:text-xl font-light text-neutral-300 mb-5 text-center md:text-left">
             NFC Data: {nfcData}
+            {JSON.stringify(queryParams, null, 2)}
+            Cust ID from Link: {queryParams.CustID}
           </p>
           <button
             className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 "
