@@ -14,6 +14,7 @@ export default function NFC_Hub() {
   const [status, setStatus] = useState(false);
   const [scanProgress, setScanProgress] = useState("Not Scanning");
   const [custID, setCustID] = useState("");
+  const [custID2, setCustID2] = useState("");
   //Overlay state
   const [isOverlayVisible, setOverlayVisible] = useState(false);
 
@@ -41,7 +42,7 @@ export default function NFC_Hub() {
             // Retrieve the query parameter 'CustID'
             const custID = urls.searchParams.get("CustID");
             setCustID(custID);
-            // setCustID(CustID);
+            setCustID2(`${urls.join(", ")}`);
             setStatus(true);
             setScanProgress("Scanning Complete");
           } else {
@@ -150,12 +151,14 @@ export default function NFC_Hub() {
                 className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
                 onClick={handleOverlayClick}
               >
-                {isOverlayVisible ? (
+                {status ? (
                   <div className="text-white text-2xl">
                     <p>Full Name: </p>
                     {CustName}
                     <p>Cust ID: </p>
                     {custID}
+                    <p>Cust ID2 : </p>
+                    {custID2}
                     <p>Phone: </p>
                     {phone}
                     <button className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 ">
