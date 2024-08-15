@@ -39,11 +39,12 @@ export default function NFC_Hub() {
           // Display the extracted URLs
           if (urls.length > 0) {
             // Split the URL by the '/' character
-            const segments = urls.split("/");
+            // const segments = urls.split("/");
 
             // The desired part (BC123409) is the last segment
-            const CustID = segments[segments.length - 1];
-            setCustID(CustID);
+            // const CustID = segments[segments.length - 1];
+            setCustID(`${urls.join(", ")}`);
+            // setCustID(CustID);
             setStatus(true);
             setScanProgress("Scanning Complete");
           } else {
@@ -169,7 +170,7 @@ export default function NFC_Hub() {
                 className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
                 onClick={handleOverlayClick}
               >
-                {status ? (
+                {true ? (
                   <div className="text-white text-2xl">
                     <p>Full Name: </p>
                     {CustName}
