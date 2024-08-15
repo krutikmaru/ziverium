@@ -22,6 +22,7 @@ export default function NFC_Hub() {
     const finalPath = segments[segments.length - 1];
     console.log("Path : ", finalPath); // Output: nfc_center
     setCustID(retrievedCustID!);
+    setStatus(true);
     console.log("CustID :  ", custID); // Output: BC123410
   };
   const [queryParams, setQueryParams] = useState<{ [key: string]: string }>({});
@@ -56,7 +57,6 @@ export default function NFC_Hub() {
             // Retrieve the query parameter 'CustID'
             // const custID = urls.searchParams.get("CustID");
             custIDFetcher(urls);
-            setStatus(true);
             setScanProgress("Scanning Complete");
           } else {
             // ("NFC scan successful, but no URL records found.");
@@ -164,7 +164,7 @@ export default function NFC_Hub() {
                 className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
                 onClick={handleOverlayClick}
               >
-                {status ? (
+                {true ? (
                   <div className="text-white text-2xl">
                     <p>Full Name: </p>
                     {CustName}
