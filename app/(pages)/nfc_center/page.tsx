@@ -46,22 +46,26 @@ export default function NFC_Hub() {
             const CustID = segments[segments.length - 1];
             setCustID(CustID);
             setStatus(true);
-            setScanProgress("");
+            setScanProgress("Scanning Complete");
           } else {
             // ("NFC scan successful, but no URL records found.");
-            setScanProgress("");
+            setScanProgress("Scanning Complete without Url");
+            setStatus(true);
             return;
           }
         });
 
         reader.addEventListener("error", (event: any) => {
           console.error("NFC scan error:", event);
+          setScanProgress("Failed: " + event);
           // ("Error scanning NFC.");
         });
       } catch (error) {
+        setScanProgress("Failed to set up scan :" + error);
         console.error("Error setting up NFC scan:", error);
       }
     } else {
+      setScanProgress("NFC is not supported");
       console.error("NFC is not supported");
     }
   };
@@ -162,7 +166,7 @@ export default function NFC_Hub() {
                   </div>
                 ) : (
                   <div className="text-white text-2xl">
-                    Tap Your Access Card to Give Access
+                    Tap Your Access Card to Give Access :{scanProgress}
                   </div>
                 )}
               </div>
