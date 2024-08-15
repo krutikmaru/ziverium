@@ -18,8 +18,7 @@ export default function NFC_Hub() {
   const [isOverlayVisible, setOverlayVisible] = useState(false);
 
   const giveAccessButton = async () => {
-    setScanProgress("Scanning");
-    setOverlayVisible(true);
+    // setOverlayVisible(true);
     if ("NDEFReader" in window) {
       try {
         const reader: any = new (window as any).NDEFReader();
@@ -51,7 +50,6 @@ export default function NFC_Hub() {
             // ("NFC scan successful, but no URL records found.");
             setScanProgress("Scanning Complete without Url");
             setStatus(true);
-            return;
           }
         });
 
@@ -145,6 +143,25 @@ export default function NFC_Hub() {
             >
               <span>Give Access</span>
             </button>
+            <p>
+              {status ? (
+                <div className="text-white text-2xl">
+                  <p>Full Name: </p>
+                  {CustName}
+                  <p>Cust ID: </p>
+                  {custID}
+                  <p>Phone: </p>
+                  {phone}
+                  <button className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 ">
+                    <span>Confirm Access</span>
+                  </button>
+                </div>
+              ) : (
+                <div className="text-white text-2xl">
+                  Tap Your Access Card to Give Access :{scanProgress}
+                </div>
+              )}
+            </p>
           </div>
           <div className=" w-full h-full relative overflow-visible bg-transparent">
             {isOverlayVisible && (
