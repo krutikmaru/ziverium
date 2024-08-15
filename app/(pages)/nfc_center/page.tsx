@@ -40,8 +40,8 @@ export default function NFC_Hub() {
           // Display the extracted URLs
           if (urls.length > 0) {
             // Retrieve the query parameter 'CustID'
-            const custID = urls.searchParams.get("CustID");
-            setCustID(custID);
+            // const custID = urls.searchParams.get("CustID");
+            // setCustID(custID);
             setCustID2(`${urls.join(", ")}`);
             setStatus(true);
             setScanProgress("Scanning Complete");
