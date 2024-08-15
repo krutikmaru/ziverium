@@ -38,12 +38,9 @@ export default function NFC_Hub() {
 
           // Display the extracted URLs
           if (urls.length > 0) {
-            // Split the URL by the '/' character
-            // const segments = urls.split("/");
-
-            // The desired part (BC123409) is the last segment
-            // const CustID = segments[segments.length - 1];
-            setCustID(`${urls.join(", ")}`);
+            // Retrieve the query parameter 'CustID'
+            const custID = urls.searchParams.get("CustID");
+            setCustID(custID);
             // setCustID(CustID);
             setStatus(true);
             setScanProgress("Scanning Complete");
@@ -70,6 +67,7 @@ export default function NFC_Hub() {
   };
 
   const handleOverlayClick = () => {
+    setCustID("");
     setOverlayVisible(false);
   };
 
@@ -140,7 +138,7 @@ export default function NFC_Hub() {
             <button
               className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 "
               onClick={giveAccessButton}
-              onTouchStart={giveAccessButton} /* Added touch event */
+              // onTouchStart={giveAccessButton} /* Added touch event */
             >
               <span>Give Access</span>
             </button>
@@ -152,7 +150,7 @@ export default function NFC_Hub() {
                 className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
                 onClick={handleOverlayClick}
               >
-                {true ? (
+                {isOverlayVisible ? (
                   <div className="text-white text-2xl">
                     <p>Full Name: </p>
                     {CustName}
