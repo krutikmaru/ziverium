@@ -8,13 +8,27 @@ import Head from "next/head";
 export default function NFC_Hub() {
   const [CustName, setCustName] = useState("");
   const [phone, setPhone] = useState("");
-  const [pathName, setPathName] = useState("");
+  const [pathName, setPathName] = useState(
+    "https://ziverium-git-ziverium-exp-ziveriums-projects.vercel.app/nfc_center?CustID=BC123410"
+  );
+  const custIDFetcher = (urls: any) => {
+    // Split the URL by the '/' character
+    const segments = urls.split("/");
+    // Retrieve the 'CustID' query parameter
+    // Parse the current URL
+    const url = new URL(urls);
+    const retrievedCustID = url.searchParams.get("CustID");
+    // The desired part (nfc_center) is the last segment
+    const finalPath = segments[segments.length - 1];
+    console.log("Path : ", finalPath); // Output: nfc_center
+    setCustID(retrievedCustID!);
+    console.log("CustID :  ", custID); // Output: BC123410
+  };
   const [queryParams, setQueryParams] = useState<{ [key: string]: string }>({});
 
   const [status, setStatus] = useState(false);
   const [scanProgress, setScanProgress] = useState("Not Scanning");
   const [custID, setCustID] = useState("");
-  const [custID2, setCustID2] = useState("");
   //Overlay state
   const [isOverlayVisible, setOverlayVisible] = useState(false);
 
@@ -41,8 +55,7 @@ export default function NFC_Hub() {
           if (urls.length > 0) {
             // Retrieve the query parameter 'CustID'
             // const custID = urls.searchParams.get("CustID");
-            // setCustID(custID);
-            setCustID2(`${urls.join(", ")}`);
+            custIDFetcher(urls);
             setStatus(true);
             setScanProgress("Scanning Complete");
           } else {
@@ -157,8 +170,7 @@ export default function NFC_Hub() {
                     {CustName}
                     <p>Cust ID: </p>
                     {custID}
-                    <p>Cust ID2 : </p>
-                    {custID2}
+
                     <p>Phone: </p>
                     {phone}
                     <button className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 ">
@@ -175,8 +187,15 @@ export default function NFC_Hub() {
             <button className="bg-transparent text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 ">
               <span></span>
             </button>
+            <button
+              className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 "
+
+              // onTouchStart={giveAccessButton} /* Added touch event */
+            >
+              <span>Give Access</span>
+            </button>
             <button className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-full flex items-center space-x-2 ">
-              <span>Access Control List</span>
+              <span>Get id from url</span>
             </button>
           </div>
         </div>
