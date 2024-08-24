@@ -226,7 +226,7 @@ const notifications = [
     time: "9:41 AM",
     description: "Company sales up by 70%",
     appIcon: "/business-card/icon-linkedin.svg",
-    href: "https://www.linkedin.com/in/krutik-maru/",
+    href: "https://www.linkedin.com/in/abrar-advani-83b077197/",
   },
   {
     id: "brochure",
