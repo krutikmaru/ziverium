@@ -7,7 +7,7 @@ export default function Page() {
   const isMobile = width !== undefined && width <= 768;
   return (
     <main className="flex ">
-      {isMobile ? <BusinessCardMobile /> : <BusinessCardMobile />}
+      <BusinessCardMobile />
     </main>
   );
 }

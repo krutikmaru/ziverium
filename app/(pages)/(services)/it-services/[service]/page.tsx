@@ -20,6 +20,7 @@ import {
 
 // Internal Imports
 import { services } from "@/app/lib/data/services/it-services";
+import BuyButton from "@/app/ui/components/services/BuyButton";
 
 function Page({ params }: { params: { service: string } }) {
   const service = services.find((service) => service.slug === params.service);
@@ -50,6 +51,7 @@ function Page({ params }: { params: { service: string } }) {
               </div>
             ))}
           </div>
+          <BuyButton paymentLink={service.paymentLink} />
         </div>
         {/* Service Image */}
         <div className="w-full bg-neutral-800/20 border-2 border-neutral-700/30 backdrop-blur-2xl h-96 rounded-md overflow-hidden relative">

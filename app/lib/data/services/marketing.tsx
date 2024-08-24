@@ -11,6 +11,7 @@ export const services: MarketingService[] = [
     description: "Building a unique business identity.",
     href: "/marketing-services/branding",
     cta: "Learn more",
+    paymentLink: "",
     background: (
       <Image
         src="/marketing/branding.avif"
@@ -132,6 +133,7 @@ export const services: MarketingService[] = [
     description: "Promoting your brand online",
     href: "/marketing-services/digital-marketing",
     cta: "Learn more",
+    paymentLink: "",
     background: (
       <Image
         src="/marketing/digital-marketing.avif"
@@ -248,6 +250,7 @@ export const services: MarketingService[] = [
     Icon: Heart,
     name: "Social Media Marketing",
     description: "Advertising on social media platforms.",
+    paymentLink: "https://buy.stripe.com/test_8wM2922L48MV2By4gj",
     href: "/marketing-services/social-media-marketing",
     cta: "Learn more",
     background: (
@@ -360,6 +363,7 @@ export const services: MarketingService[] = [
     description: "Crafting attractive and functional product packaging.",
     href: "/marketing-services/package-designing",
     cta: "Learn more",
+    paymentLink: "",
     background: (
       <Image
         src="/marketing/package-designing.avif"
@@ -478,6 +482,7 @@ export const services: MarketingService[] = [
     description: "Managing and optimizing social media presence",
     href: "/marketing-services/social-media-management",
     cta: "Learn more",
+    paymentLink: "",
     background: (
       <Image
         src="/marketing/social-media-management.avif"

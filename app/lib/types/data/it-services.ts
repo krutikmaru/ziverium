@@ -33,4 +33,5 @@ export type ITService = {
   howItHelpsYourBusiness: string;
   benefits: Benefit[];
   faqs: FAQ[];
+  paymentLink: string;
 };

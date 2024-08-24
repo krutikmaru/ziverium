@@ -33,4 +33,5 @@ export type MarketingService = {
   howItHelpsYourBusiness: string;
   benefits: Benefit[];
   faqs: FAQ[];
+  paymentLink: string;
 };

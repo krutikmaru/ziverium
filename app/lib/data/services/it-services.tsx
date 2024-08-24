@@ -11,6 +11,7 @@ export const services: ITService[] = [
     description: "Managing and optimizing social media presence",
     href: "/it-services/websites",
     cta: "Learn more",
+    paymentLink: "",
     background: (
       <Image
         src="/it-services/websites.jpg"
@@ -136,6 +137,7 @@ export const services: ITService[] = [
     description: "Managing and optimizing social media presence",
     href: "/it-services/web-applications",
     cta: "Learn more",
+    paymentLink: "https://buy.stripe.com/test_7sI6pifxQgfncc8cMO",
     background: (
       <Image
         src="/it-services/web-application.jpg"
@@ -257,6 +259,7 @@ export const services: ITService[] = [
     description: "Managing and optimizing social media presence",
     href: "/it-services/mobile-applications",
     cta: "Learn more",
+    paymentLink: "",
     background: (
       <Image
         src="/it-services/mobile-applications.jpg"

@@ -20,6 +20,7 @@ import {
 
 // Internal Imports
 import { services } from "@/app/lib/data/services/marketing";
+import BuyButton from "@/app/ui/components/services/BuyButton";
 
 // Pages for IT and Marketing Services are same yet made separately -> considering a future case where structure of either of them changes.
 
@@ -46,12 +47,13 @@ function Page({ params }: { params: { service: string } }) {
             {service.tags.map((tag) => (
               <div
                 key={tag}
-                className="bg-neutral-800/50 rounded-full backdrop-blur-xl py-1 px-6 border-2 border-neutral-700/30 mr-2 mb-2 "
+                className="bg-neutral-800/50 rounded-full backdrop-blur-xl py-1 px-6 border-2 border-neutral-700/30 mr-2 mb-5 "
               >
                 {tag}
               </div>
             ))}
           </div>
+          <BuyButton paymentLink={service.paymentLink} />
         </div>
         {/* Service Image */}
         <div className="w-full bg-neutral-800/20 border-2 border-neutral-700/30 backdrop-blur-2xl h-96 rounded-md overflow-hidden relative">
