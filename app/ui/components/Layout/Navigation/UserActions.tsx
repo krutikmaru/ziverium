@@ -75,7 +75,7 @@ const UserActions = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Image
-                  src="/meera.png"
+                  src="/user.jpg"
                   alt="User"
                   fill
                   className="rounded-full"
