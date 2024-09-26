@@ -15,6 +15,13 @@ type FAQ = {
   answer: string;
 };
 
+type Variant = {
+  title: string;
+  description: string;
+  priceFormatted: string;
+  paymentLink: string;
+};
+
 export type ITService = {
   slug: string;
   Icon: React.ComponentType;
@@ -22,6 +29,7 @@ export type ITService = {
   description: string;
   href: string;
   cta: string;
+  variants: Variant[];
   background: React.ReactNode;
   className: string;
   cover: string;
@@ -33,5 +41,4 @@ export type ITService = {
   howItHelpsYourBusiness: string;
   benefits: Benefit[];
   faqs: FAQ[];
-  paymentLink: string;
 };

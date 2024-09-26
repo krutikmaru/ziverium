@@ -52,21 +52,6 @@ const UserActions = () => {
     }
   }
 
-  // async function handleOrder() {
-  //   const supabase = createClient();
-  //   const { data: d, error } = await supabase.from("orders").insert({
-  //     id: "test",
-  //     amount: 2500000,
-  //     email: "meeramaru21@gmail.com",
-  //     name: "Krutik Maru",
-  //     status: "suceeded",
-  //     receipt_url:
-  //       "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xUG1FcmpBek1Lbjc4TzhwKM6rorYGMgYfp5jk3HA6LBayLAXXD0OI77SAuZTnJFLuOxUlWm3OadAfJEPuNHVxzZMQZ1-XJ30Gb-SN",
-  //   });
-  //   console.log("Done Data:", d);
-  //   console.log("Error:", error);
-  // }
-
   return (
     <div className="flex items-center space-x-2">
       {user ? (
@@ -102,7 +87,6 @@ const UserActions = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          {/* <button onClick={handleOrder}>Order</button> */}
         </>
       ) : (
         <Link

@@ -38,7 +38,7 @@ export async function signup(formData: FormData) {
   };
 
   const { error } = await supabase.auth.signUp(data);
-
+  console.log("m21", error);
   if (error) {
     redirect("/error");
   }

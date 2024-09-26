@@ -11,7 +11,27 @@ export const services: ITService[] = [
     description: "Managing and optimizing social media presence",
     href: "/it-services/websites",
     cta: "Learn more",
-    paymentLink: "",
+    variants: [
+      {
+        title: "Basic",
+        description: "2-3 Pages, Responsive, and 3-4 sections per page",
+        priceFormatted: "₹35,000",
+        paymentLink: "https://buy.stripe.com/test_bIY5le99s7IR6RO004",
+      },
+      {
+        title: "Pro",
+        description: "5-8 Pages, Responsive, and 5-6 sections per page",
+        priceFormatted: "₹50,000",
+        paymentLink: "https://buy.stripe.com/test_00g7tm71kfbj2By6ot",
+      },
+      {
+        title: "Premium",
+        description:
+          "10+ Pages, Responsive, SEO optimized, and unlimited sections per page & revisions",
+        priceFormatted: "₹75,000",
+        paymentLink: "https://buy.stripe.com/test_28o9Bu5Xg6ENcc8dQW",
+      },
+    ],
     background: (
       <Image
         src="/it-services/websites.jpg"
@@ -137,7 +157,29 @@ export const services: ITService[] = [
     description: "Managing and optimizing social media presence",
     href: "/it-services/web-applications",
     cta: "Learn more",
-    paymentLink: "https://buy.stripe.com/test_7sI6pifxQgfncc8cMO",
+    variants: [
+      {
+        title: "Basic",
+        description:
+          "Basic web application with 2-3 pages, responsive design, includes basic form functionality, and user authentication.",
+        priceFormatted: "₹45,000",
+        paymentLink: "https://buy.stripe.com/test_3cscNGadw6EN0tq4gn",
+      },
+      {
+        title: "Pro",
+        description:
+          "Advanced web application with 5-8 pages, responsive design, dynamic content, database integration, and basic admin panel.",
+        priceFormatted: "₹75,000",
+        paymentLink: "https://buy.stripe.com/test_7sI6piclE7IRgsoaEM",
+      },
+      {
+        title: "Premium",
+        description:
+          "Enterprise-level web application with 10+ pages, fully responsive, SEO optimized, real-time data, API integration, advanced admin panel, and unlimited revisions.",
+        priceFormatted: "₹500,000",
+        paymentLink: "https://buy.stripe.com/test_5kAfZSdpI8MV5NK4gp",
+      },
+    ],
     background: (
       <Image
         src="/it-services/web-application.jpg"
@@ -259,7 +301,29 @@ export const services: ITService[] = [
     description: "Managing and optimizing social media presence",
     href: "/it-services/mobile-applications",
     cta: "Learn more",
-    paymentLink: "",
+    variants: [
+      {
+        title: "Basic",
+        description:
+          "Basic mobile app with 2-3 screens, responsive layout for different devices, basic user authentication, and essential features.",
+        priceFormatted: "₹60,000",
+        paymentLink: "https://buy.stripe.com/test_dR614Y4Tc3sBfok7sC",
+      },
+      {
+        title: "Pro",
+        description:
+          "Advanced mobile app with 5-8 screens, responsive layout, push notifications, offline support, database integration, and standard user management.",
+        priceFormatted: "₹85,000",
+        paymentLink: "https://buy.stripe.com/test_cN200Uadw4wF2By00b",
+      },
+      {
+        title: "Premium",
+        description:
+          "Full-featured mobile app with 10+ screens, fully responsive, real-time sync, API integration, advanced user management, custom animations, and unlimited revisions.",
+        priceFormatted: "₹250,000",
+        paymentLink: "https://buy.stripe.com/test_aEU5le2L4aV33FC8wI",
+      },
+    ],
     background: (
       <Image
         src="/it-services/mobile-applications.jpg"

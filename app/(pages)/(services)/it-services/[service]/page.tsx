@@ -51,7 +51,6 @@ function Page({ params }: { params: { service: string } }) {
               </div>
             ))}
           </div>
-          <BuyButton paymentLink={service.paymentLink} />
         </div>
         {/* Service Image */}
         <div className="w-full bg-neutral-800/20 border-2 border-neutral-700/30 backdrop-blur-2xl h-96 rounded-md overflow-hidden relative">
@@ -64,6 +63,23 @@ function Page({ params }: { params: { service: string } }) {
         </div>
       </div>
       <div className="mt-10 md:mt-5">
+        <div className="flex flex-col space-y-4 w-full my-10">
+          {service.variants.map((variant) => (
+            <div
+              key={variant.title}
+              className="w-full flex justify-between items-center bg-neutral-950 p-5 rounded-md border-2 border-neutral-900"
+            >
+              <div>
+                <h3 className="text-xl font-semibold">
+                  {variant.title} | {variant.priceFormatted}
+                </h3>
+                <h4></h4>
+                <p className="text-neutral-400">{variant.description}</p>
+              </div>
+              <BuyButton paymentLink={variant.paymentLink} />
+            </div>
+          ))}
+        </div>
         {/* What we offer */}
         <div className="mb-6">
           <div className="flex flex-col space-y-2 justify-start items-start mb-4 sm:flex-row sm:space-x-2 sm:space-y-0 sm:items-center">

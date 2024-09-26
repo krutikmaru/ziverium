@@ -23,9 +23,6 @@ function Navigation() {
       </Link>
       <DesktopLinks />
       <UserActions />
-
-      {/* Dark Mode Future Reference */}
-      {/* <ThemeSwitcher /> */}
     </div>
   );
 }

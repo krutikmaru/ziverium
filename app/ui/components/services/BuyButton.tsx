@@ -17,6 +17,7 @@ import { User } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/client";
 
 function BuyButton({ paymentLink }: { paymentLink: string }) {
+  console.log(paymentLink);
   const [user, setUser] = useState<User | undefined>(undefined);
   useEffect(() => {
     async function getUser() {
@@ -44,7 +45,7 @@ function BuyButton({ paymentLink }: { paymentLink: string }) {
   return (
     <Dialog>
       <DialogTrigger>
-        <button className="bg-ziverium-blue text-[#141414] py-2 px-5 font-semibold rounded-lg flex items-center space-x-2 ">
+        <button className="bg-ziverium-blue text-[#2d2d2d] py-2 px-5 font-semibold rounded-lg flex items-center space-x-2 ">
           <span>Buy Now</span>
         </button>
       </DialogTrigger>
@@ -61,7 +62,7 @@ function BuyButton({ paymentLink }: { paymentLink: string }) {
           className={buttonVariants({
             variant: "outline",
             className:
-              "dark:bg-neutral-50 dark:text-black dark:hover:text-black dark:hover:bg-neutral-300",
+              "bg-neutral-50 dark:bg-neutral-50 dark:text-black dark:hover:text-black dark:hover:bg-neutral-300",
           })}
         >
           Checkout
